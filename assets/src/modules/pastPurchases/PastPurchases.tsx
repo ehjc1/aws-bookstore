@@ -8,7 +8,7 @@ import bestSellers from "../../images/bestSellers.png";
 import yourshoppingcart from "../../images/yourshoppingcart.png";
 import { Order } from "../cart/CartProductRow";
 
-interface PastPurchasesProps {}
+interface PastPurchasesProps { }
 
 interface Purchases {
   orderDate: number;
@@ -39,10 +39,10 @@ export default class PastPurchases extends Component<PastPurchasesProps, PastPur
 
     try {
       const orders = await this.listOrders();
-      this.setState({ 
+      this.setState({
         orders: orders,
         isLoading: false
-     });
+      });
     } catch (e) {
       alert(e);
     }
@@ -71,17 +71,17 @@ export default class PastPurchases extends Component<PastPurchasesProps, PastPur
           </div>
           {!this.state.isLoading && this.state.orders && this.state.orders
             .sort((order1, order2) => order2.orderDate - order1.orderDate)
-            .map(order => 
+            .map(order =>
               <div className="order-date" key={order.orderId}>
                 <h4>{`Order date: ${this.getPrettyDate(order.orderDate)}`}</h4>
                 {order.books.map((book) => <PurchasedProductRow order={book} key={book.bookId} />)}
               </div>)
           }
-          
+
           <div className="well-bs no-margin-top no-padding col-md-12">
-          <a href="/best"><img src={bestSellers} alt="Best sellers" className="checkout-img no-padding" /></a>
-          <a href="/cart"><img src={yourshoppingcart} alt="Shopping cart" className="checkout-img no-padding" /></a>
-          
+            <a href="/best"><img src={bestSellers} alt="Best sellers" className="checkout-img no-padding" /></a>
+            <a href="/cart"><img src={yourshoppingcart} alt="Shopping cart" className="checkout-img no-padding" /></a>
+
           </div>
         </div>
       </div>
