@@ -1,6 +1,6 @@
 import glob, os, sys
 
-searchString = input('// Eugene Chew 1351553')
+searchString = '// Eugene Chew 1351553'
 testPass = 0
 
 for root, dirs, files in os.walk("./src"): # search the src directory
