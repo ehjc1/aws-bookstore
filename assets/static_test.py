@@ -16,5 +16,4 @@ for root, dirs, files in os.walk("./src"): # search the src directory
                 
             
             f.close()
-     
-    
+    sys.exit(0)

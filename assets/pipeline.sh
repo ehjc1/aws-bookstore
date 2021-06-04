@@ -9,7 +9,7 @@ if [ $? = 0 ]; then
 
     if [ $? = 0 ]; then
             git add .
-            git commit -m "COMPX341 Commit aws-bookstore:$1"
+            git commit -m "COMPX341-21:$1"
             git push origin master
     else
         echo "Build Unsuccessful"
