@@ -1,6 +1,7 @@
 import glob, os, sys
 
 searchString = input('// Eugene Chew 1351553')
+testPass = 0
 
 for root, dirs, files in os.walk("./src"):
     for file in files:
@@ -9,12 +10,16 @@ for root, dirs, files in os.walk("./src"):
 
             if searchString in f.read():
                 print('found string in file %s' % file)
-                sys.exit(0)
+                testPass = 0
             else:
+                testPass = -1
                 print('string not found')
-                sys.exit(-1)
+                
             
             f.close()
 
-        
+if testPass == 0:
+    sys.exit(0)
+else:
+    sys.exit(-1)        
     
