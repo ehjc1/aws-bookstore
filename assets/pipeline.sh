@@ -1,12 +1,20 @@
 #! /usr/bin/bash
-npm install
+# npm install
 
-npm run build
-
+python3 static_test.py
 if [ $? = 0 ]; then
-    git add .
-    git commit -m "COMPX341 Commit aws-bookstore:$1"
-    git push origin master
+
+    echo "static test passed!"
+    npm run build
+
+    if [ $? = 0 ]; then
+            git add .
+            git commit -m "COMPX341 Commit aws-bookstore:$1"
+            git push origin master
+    else
+        echo "Build Unsuccessful"
+    fi
 else
-    echo "Build Unsuccessful"
+    echo "static test failed!"
+    exit -1
 fi
