@@ -8,7 +8,8 @@ if [ $? = 0 ]; then
     npm run build
 
     if [ $? = 0 ]; then
-        npm run test
+    # Run component test
+        npm run test 
         
         if [ $? = 0 ]; then
             echo "test was a great success"
